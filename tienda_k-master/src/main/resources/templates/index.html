@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Pais</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2>Listado de Clientes</h2>
+        <hr>
+        <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
+        <div th:if="${clientes != null and !clientes.empty}">
+            <table border="0">
+                <thead>
+                    <tr>
+                        <th>ID pais</th>
+                        <th>ID cedula</th>
+                        <th>Nombre</th>
+                        <th>Capital</th>
+                        <th>Poblacion</th>
+                        <th>Costas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cliente: ${clientes}">
+                        <td>[[${cliente.id_pais}]]</td>
+                        <td>[[${cliente.id_cedula}]]</td>
+                        <td>[[${cliente.nombre}]]</td>
+                        <td>[[${cliente.poblacion}]]</td>
+                        <td>[[${cliente.costas}]]</td>
+                        <td>
+                            <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}">Eliminar</a>
+                            <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}">Modificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>       
+        </div>
+        
+        <div th:if="${clientes == null or clientes.empty}">
+            <h2>No tenemos clientes que mostrar</h2>
+        </div>
+        
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
+
+
+
+
+
+
+
