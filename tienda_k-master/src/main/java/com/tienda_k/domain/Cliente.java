@@ -12,23 +12,22 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //cambiar estas variables a la de mysql workbench
-    private long id_pais;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCliente;
     
-    private int id_cedula;
     private String nombre;
-    private String capital;
-    private String poblacion;
+    private String apellidos;
+    private String correo;
+    private String telefono;
 
     public Cliente() {
-        
     }
 
-    public Cliente(int id_pais,int id_cedula,String nombre, String capital, String poblacion) {
-        this.id_pais = id_pais;
+    public Cliente(String nombre, String apellidos, String correo, String telefono) {
         this.nombre = nombre;
-        this.capital = capital;
-        this.poblacion = poblacion;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
     }
     
 }

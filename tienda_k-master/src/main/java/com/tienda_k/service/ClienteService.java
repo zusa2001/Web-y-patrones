@@ -3,7 +3,7 @@ package com.tienda_k.service;
 import com.tienda_k.domain.Cliente;
 import java.util.List;
 
-public interface ClienteService { // cambiar parametros
+public interface ClienteService {
     
     // Se obtiene un listado de clientes en un List
     public List<Cliente> getClientes();
